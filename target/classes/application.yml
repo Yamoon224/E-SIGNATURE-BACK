@@ -1,8 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/signaturedb
-    username: postgres
-    password: pwd123
+    # url: jdbc:postgresql://localhost:5432/signaturedb
+    # username: postgres
+    # password: pwd123
+    url: jdbc:postgresql://dpg-d1ddcoemcj7s73foldn0-a.frankfurt-postgres.render.com:5432/signaturedb
+    username: signaturedb
+    password: fvXGaiyo7bR5j3tSpcsKIgiMNgyRgrt8
+    driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
     hibernate:
