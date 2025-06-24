@@ -1,0 +1,20 @@
+Clean Code : mvn clean compile
+Run Server : mvn spring-boot:run
+Run Server With Verbose : mvn spring-boot:run -X
+Unitaire Tests : mvn test
+
+Unitaire Tests :
+    - Register
+        * curl -X POST "http://localhost:8080/api/auth/register" -H "Content-Type: application/json" -d "{\"email\":\"jean@example.com\",\"password\":\"monMotDePasse123\"}"
+    - Login 
+        * curl -X POST "http://localhost:8080/api/auth/login" -H "Content-Type: application/json" -d "{\"email\":\"jean@example.com\",\"password\":\"monMotDePasse123\"}"
+
+    - Get Documents By User 
+        * curl -X GET "http://localhost:8080/api/documents/user" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTA0Mzg4MjYsImV4cCI6MTc1MDQ0MjQyNn0.W5p3i_RXDNvyWjysQdtJyBcNLMjX9yBFUo8UkR0UASQ"
+    - Upload Document
+        * curl -X POST "http://localhost:8080/api/documents/upload" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTA0Mzg4MjYsImV4cCI6MTc1MDQ0MjQyNn0.W5p3i_RXDNvyWjysQdtJyBcNLMjX9yBFUo8UkR0UASQ" --cookie "JSESSIONID=4DEAC171AD19E77D058B664A4FBE2465" -F "file=@/chemin/vers/ton/fichier.pdf"
+    - Document Sign
+        - With Image
+        curl -X POST http://localhost:8080/api/documents/1/sign -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTAzNDgzNjksImV4cCI6MTc1MDM1MTk2OX0.B7zia27I2Kd98HPzBDW8og00KI5Ib8q1u9FA75F5IrY" -F "signatureImage=@\"C:/Users/HIGH LEVEL/Downloads/signature.png\"" -F "signatureText=Approved By M. KEITA"
+        - Without Image
+        curl -X POST http://localhost:8080/api/documents/1/sign -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTA0MzU5OTMsImV4cCI6MTc1MDQzOTU5M30.mqCwJkpXLlAzE8IXO3iYjvJEvvwtrpf6H99tSZDjpis" -F "signatureText=M. KEITA"
