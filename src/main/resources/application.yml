@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-d1ddcoemcj7s73foldn0-a.frankfurt-postgres.render.com:5432/signaturedb
-    username: signaturedb
-    password: fvXGaiyo7bR5j3tSpcsKIgiMNgyRgrt8
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
   jpa:
     show-sql: true
     hibernate:

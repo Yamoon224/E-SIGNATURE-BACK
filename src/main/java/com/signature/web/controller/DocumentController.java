@@ -110,8 +110,21 @@ public class DocumentController {
 
                 if (signatureImage != null && !signatureImage.isEmpty()) {
                     // 1. Lire directement les données du fichier avec removeBackground
-                    byte[] pngData = ImageUtils.removeBackground(signatureImage);
-                    PDImageXObject image = PDImageXObject.createFromByteArray(pdfDoc, pngData, "signature");
+                    // byte[] pngData = ImageUtils.removeBackground(signatureImage);
+                    // PDImageXObject image = PDImageXObject.createFromByteArray(pdfDoc, pngData, "signature");
+                    // 1. Définir le chemin du dossier
+                    File outputDir = new File("assets/img");
+                    if (!outputDir.exists()) {
+                        outputDir.mkdirs(); // Crée le dossier s'il n'existe pas
+                    }
+
+                    // 2. Enregistrer l'image sous le nom "signature.png"
+                    File imageFile = new File(outputDir, "signature.png");
+                    signatureImage.transferTo(imageFile);
+
+                    // 3. Charger l’image dans le PDF
+                    PDImageXObject image = PDImageXObject.createFromFile(imageFile.getAbsolutePath(), pdfDoc);
+
 
                     // 2. Dessine l'image
                     cs.drawImage(image, x, y, imageWidth, imageHeight);
