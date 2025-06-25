@@ -101,7 +101,7 @@ public class DocumentController {
             float pageHeight = mediaBox.getHeight();
 
             float imageWidth = 90, imageHeight = 45;
-            float marginRight = 5;
+            float marginRight = 10;
             float marginTop = 5;
             float x = pageWidth - imageWidth - marginRight;
             float y = pageHeight - imageHeight - marginTop;
@@ -131,12 +131,11 @@ public class DocumentController {
                     cs.beginText();
                     cs.setNonStrokingColor(0, 166, 125);
                     cs.setFont(PDType1Font.HELVETICA_BOLD, 10);
-                    cs.newLineAtOffset(x, y - 12); // le texte juste sous l'image
-                    cs.showText("Signed by: " + signatureText);
+                    cs.newLineAtOffset(x-10, y - 12); // le texte juste sous l'image
+                    cs.showText(signatureText);
                     cs.endText();
                 } else {
-                    String text = "Approved by: " + signatureText;
-                    float textX = pageWidth - 150;
+                    float textX = pageWidth - 140;
                     float textY = pageHeight - 80;
 
                     cs.beginText();
@@ -150,7 +149,7 @@ public class DocumentController {
 
                     // Transformation affine : rotation + translation
                     cs.setTextMatrix(cos, sin, -sin, cos, textX, textY);
-                    cs.showText(text);
+                    cs.showText(signatureText);
                     cs.endText();
                 }
             }
