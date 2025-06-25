@@ -17,6 +17,9 @@ public class WebConfig implements WebMvcConfigurer {
         String uploadPath = uploadDir.toFile().getAbsolutePath();
 
         registry.addResourceHandler("/assets/**")
+                .allowedOrigins("https://e-signature-seven.vercel.app")
+                .allowedMethods("GET")
+                .allowedHeaders("*")
                 .addResourceLocations("file:" + uploadPath + "/");
     }
 }
