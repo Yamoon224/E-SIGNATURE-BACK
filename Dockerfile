@@ -4,6 +4,9 @@ FROM eclipse-temurin:17-jdk-alpine
 # Crée un répertoire de travail dans le conteneur
 WORKDIR /app
 
+# Copie les fichiers statiques PDF, images, etc.
+COPY assets/ assets/
+
 # Copie le fichier JAR dans l'image
 COPY target/*.jar app.jar
 
