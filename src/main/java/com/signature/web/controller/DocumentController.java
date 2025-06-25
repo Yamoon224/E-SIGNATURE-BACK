@@ -127,7 +127,7 @@ public class DocumentController {
 
 
                     // 2. Dessine l'image
-                    cs.drawImage(image, x, y, imageWidth, imageHeight);
+                    cs.drawImage(image, x, y);
                     cs.beginText();
                     cs.setNonStrokingColor(0, 166, 125);
                     cs.setFont(PDType1Font.HELVETICA_BOLD, 10);
